@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Gadaelectronic</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .category-nav-link.active {
+            color: #0284c7; /* sky-600 */
+            font-weight: 600;
+            border-bottom-width: 2px;
+            border-color: #0284c7; /* sky-600 */
+        }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Header (with sticky nav) -->
+    <header class="bg-white sticky top-0 z-40 shadow-sm">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-sky-600 rounded-full flex-shrink-0"></div>
+                    <a href="index.html" class="text-xl font-bold text-gray-800">Gadaelectronic</a>
+                </div>
+                <div class="hidden md:flex flex-1 max-w-xl mx-4">
+                     <div class="relative w-full">
+                        <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"></i>
+                        <input type="text" placeholder="Search for products, brands and more" class="w-full bg-slate-100 border border-gray-200 rounded-lg py-2.5 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="hidden md:flex gap-4 text-center">
+                         <a href="#" class="flex flex-col items-center text-gray-600 hover:text-sky-600 transition-colors">
+                            <i data-lucide="user" class="w-6 h-6"></i><span class="text-xs">Login</span>
+                         </a>
+                         <a href="#" class="flex flex-col items-center text-gray-600 hover:text-sky-600 transition-colors">
+                            <i data-lucide="heart" class="w-6 h-6"></i><span class="text-xs">Wishlist</span>
+                         </a>
+                         <a href="#" class="relative flex flex-col items-center text-gray-600 hover:text-sky-600 transition-colors">
+                            <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                            <span class="absolute -top-1 right-1 text-xs bg-red-500 text-white w-4 h-4 rounded-full flex items-center justify-center">3</span>
+                            <span class="text-xs">Cart</span>
+                         </a>
+                    </div>
+                    <button id="menu-btn-products" class="md:hidden text-gray-700 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Sticky Category Navigation -->
+        <nav id="category-links" class="border-b bg-white">
+            <div class="container mx-auto px-4 overflow-x-auto no-scrollbar">
+                <div class="flex space-x-8 py-2 md:justify-center">
+                    <a href="#" data-category="all" class="category-nav-link active text-sm font-medium text-gray-500 hover:text-sky-600 whitespace-nowrap pb-2 transition-colors">All Products</a>
+                    <a href="#" data-category="mobile" class="category-nav-link text-sm font-medium text-gray-500 hover:text-sky-600 whitespace-nowrap pb-2 transition-colors">Mobile</a>
+                    <a href="#" data-category="laptop" class="category-nav-link text-sm font-medium text-gray-500 hover:text-sky-600 whitespace-nowrap pb-2 transition-colors">Laptops</a>
+                    <a href="#" data-category="tv" class="category-nav-link text-sm font-medium text-gray-500 hover:text-sky-600 whitespace-nowrap pb-2 transition-colors">TV</a>
+                    <a href="#" data-category="kitchen" class="category-nav-link text-sm font-medium text-gray-500 hover:text-sky-600 whitespace-nowrap pb-2 transition-colors">Home & Kitchen</a>
+                    <a href="#" data-category="gaming" class="category-nav-link text-sm font-medium text-gray-500 hover:text-sky-600 whitespace-nowrap pb-2 transition-colors">Gaming</a>
+                    <a href="#" data-category="audio" class="category-nav-link text-sm font-medium text-gray-500 hover:text-sky-600 whitespace-nowrap pb-2 transition-colors">Audio & Video</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Product Grid Section -->
+        <section id="product-section">
+            <!-- Product groups will be dynamically inserted here by JavaScript -->
+        </section>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-gray-800 text-white mt-12"><div class="container mx-auto px-4 py-8">
+        <div class="md:flex md:justify-between"><div class="mb-8 md:mb-0"><div class="w-10 h-10 bg-sky-500 rounded-full mb-4"></div><h3 class="text-xl font-bold">Gadaelectronic</h3><p class="text-sm text-gray-400 mt-2 max-w-sm">Aapka vishvasniya saathi latest electronics aur gadgets ke liye.</p><div class="flex space-x-4 mt-6"><a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="facebook" class="w-6 h-6"></i></a><a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="instagram" class="w-6 h-6"></i></a><a href="#" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="youtube" class="w-6 h-6"></i></a></div></div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8"><div class="space-y-4 text-sm"><h4 class="font-bold text-white">Customer Service</h4><ul class="space-y-2 text-gray-400"><li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li><li><a href="#" class="hover:text-white transition-colors">FAQ</a></li><li><a href="#" class="hover:text-white transition-colors">Shipping Info</a></li><li><a href="#" class="hover:text-white transition-colors">Returns & Exchanges</a></li><li><a href="#" class="hover:text-white transition-colors">Warranty</a></li><li><a href="#" class="hover:text-white transition-colors">Track Your Order</a></li></ul></div><div class="space-y-4 text-sm"><h4 class="font-bold text-white">About</h4><ul class="space-y-2 text-gray-400"><li><a href="#" class="hover:text-white transition-colors">About Us</a></li><li><a href="#" class="hover:text-white transition-colors">Careers</a></li><li><a href="#" class="hover:text-white transition-colors">Press</a></li><li><a href="#" class="hover:text-white transition-colors">Investor Relations</a></li><li><a href="#" class="hover:text-white transition-colors">Sustainability</a></li><li><a href="#" class="hover:text-white transition-colors">Blog</a></li></ul></div><div class="space-y-4 text-sm"><h4 class="font-bold text-white">Payment & Security</h4><ul class="space-y-2 text-gray-400"><li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li><li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li></ul></div></div></div>
+        <div class="text-center text-xs text-gray-500 mt-8 pt-6 border-t border-gray-700">&copy; 2025 Gadaelectronic. All rights reserved.</div></div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // ** Final, Hand-picked, Professional & Stable Image URLs **
+        const imageUrls = {
+            mobile: [
+                'https://images.unsplash.com/photo-1601784551446-20c9e07cdbf1?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1580910051074-3eb694886505?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1512941937669-90a1b_58e7e9c?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1567581935884-3349723552ca?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1523206489230-c012c64b2b48?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1598327105666-65825ec19f71?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1620283085063-544a7f055335?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1595941069905-aca9449579d5?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1546054454-aa26e2b73480?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1533228100845-08145b01de14?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1604671368394-22ae7d517fd2?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=400&h=400&fit=crop'
+            ],
+            laptop: [
+                'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1575024357670-2b5164f47061?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1602080858428-57e16f92f544?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?q=80&w=400&h=400&fit=crop'
+            ],
+            tv: [
+                'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1558682574-859425a17277?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1601944177324-f23675a2f511?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1571415060716-b8b688a10323?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1628175422830-a384a6b9815a?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1617895155323-833e003058f4?q=80&w=400&h=400&fit=crop'
+            ],
+            kitchen: [
+                'https://images.unsplash.com/photo-1605333140413-a35941e75a17?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1626218329663-c5b59a43a758?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1618221085730-8e11c68f1f5a?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1556911220-e15b29be8c9f?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1600122299498-5c4b4334f414?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1604514246036-9b5a195b452e?q=80&w=400&h=400&fit=crop'
+            ],
+            gaming: [
+                'https://images.unsplash.com/photo-1552820728-8b8314177b21?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1612036782180-6f0b6cd84627?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1598550463033-6881a8b9e63c?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1592155931584-901ac15763e3?q=80&w=400&h=400&fit=crop'
+            ],
+            audio: [
+                'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1613040809024-b4ef7ba99bc3?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1546435770-a3e426bf4022?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1620950337833-6a908a1255a8?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1520005933220-2030ee1352e2?q=80&w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1618366712161-9394b321364b?q=80&w=400&h=400&fit=crop'
+            ],
+        };
+
+        function generateProducts() {
+            let products = [];
+            const brands = {
+                mobile: ['Samsung', 'Apple', 'OnePlus', 'Xiaomi', 'Realme', 'Vivo', 'Oppo', 'Motorola', 'Google'],
+                laptop: ['Dell', 'HP', 'Lenovo', 'Apple', 'ASUS', 'MSI', 'Microsoft'],
+                tv: ['Samsung', 'LG', 'Sony', 'OnePlus', 'Xiaomi', 'Hisense', 'TCL'],
+                kitchen: ['Philips', 'Prestige', 'Bajaj', 'Havells', 'Kent', 'Aquaguard'],
+                gaming: ['Sony', 'Microsoft', 'Nintendo', 'Logitech', 'Corsair', 'Razer'],
+                audio: ['Sony', 'Bose', 'JBL', 'Sennheiser', 'Anker', 'Boat']
+            };
+            const series = {
+                Samsung: ['Galaxy S', 'Galaxy A', 'Galaxy M', 'Galaxy F', 'Galaxy Z'],
+                Xiaomi: ['Mi', 'Redmi Note', 'Redmi'],
+                Realme: ['GT Series', 'Narzo', 'C Series'],
+                Dell: ['XPS', 'Inspiron', 'Alienware'],
+                HP: ['Spectre', 'Envy', 'Pavilion', 'Omen'],
+                Lenovo: ['ThinkPad', 'Yoga', 'IdeaPad', 'Legion'],
+            };
+
+            let id = 1;
+            let imageCounters = {};
+
+            for (const category in brands) {
+                imageCounters[category] = 0;
+                for (const brand of brands[category]) {
+                    const numProducts = Math.floor(Math.random() * 8) + 5;
+                    for (let i = 0; i < numProducts; i++) {
+                        let productName = `${brand} `;
+                        if (series[brand]) {
+                            productName += `${series[brand][Math.floor(Math.random() * series[brand].length)]} `;
+                        }
+                        productName += `${category.charAt(0).toUpperCase()}${Math.floor(Math.random() * 90) + 10}`;
+                        if (category === 'mobile' || category === 'laptop') productName += ` (${Math.pow(2, Math.floor(Math.random() * 4) + 6)}GB)`;
+                        
+                        const categoryImages = imageUrls[category];
+                        const imageIndex = imageCounters[category] % categoryImages.length;
+                        const professionalImage = categoryImages[imageIndex];
+                        imageCounters[category]++;
+
+                        products.push({
+                            id: id++,
+                            name: productName,
+                            brand: brand,
+                            category: category,
+                            price: `₹${(Math.floor(Math.random() * 1800) + 200) * 100 - 1}`,
+                            rating: (Math.random() * 0.8 + 4.1).toFixed(1),
+                            reviews: `${(Math.random() * 20).toFixed(1)}k`,
+                            image: professionalImage
+                        });
+                    }
+                }
+            }
+            return products;
+        }
+
+        const products = generateProducts();
+        const productSection = document.getElementById('product-section');
+        const categoryLinksContainer = document.getElementById('category-links');
+
+        function capitalize(str) {
+            if (!str) return '';
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        function renderProducts(category = 'all') {
+            productSection.innerHTML = '';
+            
+            const filteredProducts = category === 'all' 
+                ? products 
+                : products.filter(p => p.category === category);
+
+            if (filteredProducts.length === 0) {
+                productSection.innerHTML = `<p class="text-center text-gray-500">Is category mein koi product nahi mila.</p>`;
+                return;
+            }
+
+            const groupedByBrand = filteredProducts.reduce((acc, product) => {
+                acc[product.brand] = acc[product.brand] || [];
+                acc[product.brand].push(product);
+                return acc;
+            }, {});
+
+            for (const brand in groupedByBrand) {
+                const brandProducts = groupedByBrand[brand];
+                const brandSection = document.createElement('div');
+                brandSection.className = 'mb-12';
+                
+                let productCardsHTML = '';
+                brandProducts.forEach(product => {
+                    productCardsHTML += `
+                        <div class="bg-white rounded-2xl p-4 shadow-sm border flex flex-col transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-2 flex-shrink-0 w-60">
+                            <div class="relative">
+                                <img src="${product.image}" alt="${product.name}" class="w-full rounded-xl aspect-square object-cover bg-slate-100">
+                            </div>
+                            <div class="mt-4 flex-grow flex flex-col">
+                                <h4 class="font-bold text-sm text-gray-800 flex-grow">${product.name}</h4>
+                                <div class="flex items-center text-xs text-gray-500 mt-2">
+                                    <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                    <span class="ml-1 font-semibold">${product.rating}</span>
+                                    <span>(${product.reviews} reviews)</span>
+                                </div>
+                                <div class="flex items-baseline gap-2 mt-2">
+                                    <p class="text-xl font-bold text-gray-900">${product.price}</p>
+                                </div>
+                                <button class="w-full bg-sky-600 text-white font-bold py-2.5 rounded-lg mt-4 text-sm hover:bg-sky-700 transition-colors">Add to Cart</button>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                const categoryName = category === 'all' ? 'Products' : capitalize(category) + 's';
+                brandSection.innerHTML = `
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-2xl font-bold text-gray-800">${brand} ${categoryName}</h3>
+                        <a href="#" class="text-sm font-semibold text-sky-600 bg-sky-100 px-4 py-2 rounded-lg hover:bg-sky-200 transition-colors">View All</a>
+                    </div>
+                    <div class="flex gap-6 overflow-x-auto pb-4 -mx-4 px-4 no-scrollbar">
+                        ${productCardsHTML}
+                    </div>
+                `;
+                productSection.appendChild(brandSection);
+            }
+
+            lucide.createIcons();
+        }
+
+        categoryLinksContainer.addEventListener('click', (e) => {
+            e.preventDefault();
+            const link = e.target.closest('.category-nav-link');
+            if (link) {
+                document.querySelectorAll('.category-nav-link').forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                const category = link.dataset.category;
+                renderProducts(category);
+            }
+        });
+        
+        // Final Logic to handle category from URL
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryFromUrl = urlParams.get('category');
+
+            if (categoryFromUrl) {
+                document.querySelectorAll('.category-nav-link').forEach(l => l.classList.remove('active'));
+                const linkToActivate = document.querySelector(`.category-nav-link[data-category="${categoryFromUrl}"]`);
+                if(linkToActivate) {
+                    linkToActivate.classList.add('active');
+                }
+                renderProducts(categoryFromUrl);
+            } else {
+                renderProducts(); // Default to 'all'
+            }
+        });
+
+    </script>
+</body>
+</html>
